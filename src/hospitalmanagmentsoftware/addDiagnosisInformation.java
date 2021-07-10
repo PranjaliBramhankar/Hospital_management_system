@@ -1,3 +1,5 @@
+package hospitalmanagmentsoftware;
+
 import Project.ConnectionProvider;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -51,7 +53,7 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(280, 150));
@@ -71,7 +73,6 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 34, 100, -1));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +151,6 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/save-icon--1.png"))); // NOI18N
         jButton2.setText("SAVE");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +160,6 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Close.png"))); // NOI18N
         jButton3.setText("CLOSE");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,9 +168,9 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add new patient background.jpg"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, -1));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospitalmanagmentsoftware/add new patient background.jpg"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,22 +207,20 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
            if(!rs.first())
             {
                 jLabel2.setVisible(true);
-                System.out.println("Pranjali");
-                
             }
             else
             {
                 jLabel2.setVisible(false);
                 jTextField1.setEditable(false);
-                flag=1;
+                
                 JOptionPane.showConfirmDialog(null, "Data Not Found");
-                System.out.println("Gourav");
+                
             }
         }
         catch(Exception e)
         {
-          
             System.out.println("Read error" +e);
+            flag=1;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -266,7 +263,7 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
             {
                 Connection con = ConnectionProvider.getCon();
                 Statement st = con.createStatement();
-                st.executeUpdate("insert into patientreport2 values('"+PatientID+"','"+symptom+"','"+diagnosis +"', '"+medicine+"', '"+medicine+"', '"+typeWard+"')");
+                st.executeUpdate("insert into patientreport2 values('"+PatientID+"','"+symptom+"','"+diagnosis +"', '"+medicine+"', '"+wardReq+"', '"+typeWard+"')");
                 JOptionPane.showMessageDialog(null,"successfully updated");
                 setVisible(false);
                 new addDiagnosisInformation().setVisible(true);
@@ -274,6 +271,7 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
             catch(Exception e)
             {
                 JOptionPane.showMessageDialog(this, e);
+                
             }
         }
         else 
@@ -330,7 +328,7 @@ public class addDiagnosisInformation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
