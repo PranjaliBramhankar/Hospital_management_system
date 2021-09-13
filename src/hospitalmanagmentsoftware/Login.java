@@ -103,7 +103,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(jTextField1.getText().equals("Uttu") && jPasswordField1.getText().equals("Admin"))
+        if(jTextField1.getText().equals("Username") && jPasswordField1.getText().equals("Admin"))
         {
             setVisible(false);
             new Home().setVisible(true);
